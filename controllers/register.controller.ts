@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { prisma } from '../prismaClient/prisma.ts';
+import prisma  from '../prismaClient/prisma.ts';
 import { registerObject } from '../zod/validator.ts';
 import type { Request, Response } from 'express';
 import { redisClient } from '../redis/redis.ts';
