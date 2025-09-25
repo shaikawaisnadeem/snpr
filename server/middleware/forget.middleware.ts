@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from "express";
+import type{ Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
 const JWT_SECRET = "jwt#secret"
@@ -10,8 +10,8 @@ export const forgetMiddleware = async(req:Request, res:Response, next:NextFuncti
       return res.status(401).json({ message: "No token provided" });
     }
     const token = headers.split(" ")[1]
-
-    const decoded = jwt.verify(token, JWT_SECRET) as { email: string };
+    // verify JWT
+    const decoded = jwt.verify(token as string, JWT_SECRET);
 
     (req as any).user = decoded
     next()

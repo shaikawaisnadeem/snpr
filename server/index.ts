@@ -1,9 +1,9 @@
 import express from 'express';
 import type { Express, Response, Request } from 'express';
-import router from './routes/user.route.ts'
+import router from './routes/user.route.js'
 import cors from 'cors'
-import { authMiddleware } from './middleware/get.middleware.ts';
-import { forgetMiddleware } from './middleware/forget.middleware.ts';
+import { authMiddleware } from './middleware/get.middleware.js';
+import { forgetMiddleware } from './middleware/forget.middleware.js';
 
 const app:Express = express()
 

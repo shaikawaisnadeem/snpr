@@ -1,8 +1,8 @@
 import bcrypt from 'bcrypt';
-import prisma  from '../prismaClient/prisma.ts';
-import { registerObject } from '../zod/validator.ts';
+import prisma  from '../prismaClient/prisma.js';
+import { registerObject } from '../zod/validator.js';
 import type { Request, Response } from 'express';
-import { redisClient } from '../redis/redis.ts';
+import { redisClient } from '../redis/redis.js';
 import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = 'jwt#secret'; 

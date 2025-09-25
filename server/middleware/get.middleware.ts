@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from "express";
+import type{ Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
 const JWT_SECRET = "jwt#secret";
@@ -13,7 +13,8 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
     const token = authHeader.split(" ")[1];
 
     // verify JWT
-    const decoded = jwt.verify(token, JWT_SECRET) as { email: string };
+    const decoded = jwt.verify(token as string, JWT_SECRET);
+
 
     // attach user data to request (you can pass email, id, etc.)
     (req as any).user = decoded;

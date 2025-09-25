@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
+import type{ Request, Response } from "express";
 import prisma from "../prismaClient/prisma.js";
-import { redisClient } from "../redis/redis";
+import { redisClient } from "../redis/redis.js";
 
 export const getUser = async (req: Request, res: Response) => {
   try {
