@@ -1,18 +1,17 @@
-import express from 'express';
-import router from './routes/user.route.js';
-import cors from 'cors';
-import { authMiddleware } from './middleware/get.middleware.js';
-import { forgetMiddleware } from './middleware/forget.middleware.js';
+import express from "express";
+import router from "./routes/user.route.js";
+import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config();
 const app = express();
+const PORT = process.env.PORT || 3000;
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: process.env.FRONTEND_URL,
     credentials: true,
 }));
 app.use(express.json());
-app.use('/api', router);
-app.use('/', authMiddleware, router);
-app.use('/', forgetMiddleware, router);
-app.listen(3000, () => {
-    console.log(`server is running at port http://localhost:${3000}/`);
+app.use("/api", router);
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}/api`);
 });
 //# sourceMappingURL=index.js.map
